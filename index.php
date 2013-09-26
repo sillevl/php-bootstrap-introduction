@@ -7,6 +7,10 @@ class MenuItem{
 		$this->url = $url;
 		$this->active = $active;
 	}
+
+	public function __toString(){
+		return "<li><a href=\"$this->url\">$this->title</a></li>";
+	}
 }
 
 $menu[] = new MenuItem("Bootstrap Demo","intro");
@@ -33,9 +37,11 @@ $menu[] = new MenuItem("Page 3", "page3");
 		  	<div class="navbar-inner">
 		    	<a class="brand" href="#">Title</a>
 			    <ul class="nav">
-			      <li class="active"><a href="#">Home</a></li>
-			      <li><a href="#">Link</a></li>
-			      <li><a href="#">Link</a></li>
+			    	<?php 
+			    		foreach ($menu as $menuItem) {
+			    			echo $menuItem;
+			    		}
+			    	?>
 			    </ul>
 		  	</div>
 		</div>
