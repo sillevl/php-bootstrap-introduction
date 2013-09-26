@@ -9,6 +9,11 @@ class MenuItem{
 	}
 }
 
+$menu[] = new MenuItem("Bootstrap Demo","intro");
+$menu[] = new MenuItem("Page 1", "page1");
+$menu[] = new MenuItem("Page 2", "page2");
+$menu[] = new MenuItem("Page 3", "page3");
+
 
 ?>
 
