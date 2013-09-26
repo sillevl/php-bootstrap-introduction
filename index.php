@@ -10,11 +10,15 @@ class MenuItem{
 
 	public function __toString(){
 		$active = $this->active ? " class=\"active\"" : "";
-		return "<li{$active}><a href=\"$this->url\">$this->title</a></li>";
+		return "<li{$active}><a href=\"?p=$this->url\">$this->title</a></li>";
 	}
 
 	public function setActive($active = true){
 		$this->active = $active;
+	}
+
+	public function getUrl(){
+		return $this->url;
 	}
 }
 
@@ -23,7 +27,17 @@ $menu[] = new MenuItem("Page 1", "page1");
 $menu[] = new MenuItem("Page 2", "page2");
 $menu[] = new MenuItem("Page 3", "page3");
 
-$menu[0]->setActive();
+if(isset($_GET['p'])){
+	$p = $_GET['p'];
+	foreach ($menu as $item) {
+		if($p == $item->getUrl()){
+			$item->setActive();
+			break;
+		}
+	}
+} else{
+	$menu[0]->setActive();
+}
 
 ?>
 
