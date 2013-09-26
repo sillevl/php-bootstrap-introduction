@@ -1,5 +1,14 @@
 <?php
 
+class MenuItem{
+
+	public function __construct($title, $url = "#", $active = false){
+		$this->title = $title;
+		$this->url = $url;
+		$this->active = $active;
+	}
+}
+
 
 ?>
 
